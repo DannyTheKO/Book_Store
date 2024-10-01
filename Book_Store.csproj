@@ -7,7 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="_Resource\**" />
+    <Compile Remove="_Schemas\**" />
+    <Content Remove="_Resource\**" />
+    <Content Remove="_Schemas\**" />
+    <EmbeddedResource Remove="_Resource\**" />
+    <EmbeddedResource Remove="_Schemas\**" />
+    <None Remove="_Resource\**" />
+    <None Remove="_Schemas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Book_Store_EER.mwb" />
+    <None Remove="Book_Store_EER.mwb.bak" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.5" />
   </ItemGroup>
 
 </Project>

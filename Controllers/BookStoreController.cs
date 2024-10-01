@@ -7,28 +7,43 @@ namespace Book_Store.Controllers
     {
         //Create a List
         List<Book> book_list = new List<Book>()
+            {
+                new Book
                 {
-                    new Book {Id = 1, Title = "Continuous Delivery", Author = "Jez Humble & David Farley", Publisher = "Addison-Wesley Professional; 1st edition", Avaliable = 198, Price = 78.32M, CreateOn = new DateOnly(2010, 8, 1), IsActive = ActiveStatus.N, GenreId = 1}
-                };
+                    BookId = "1",
+                    CategoryId = 1,
+                    PublisherId = 1,
+                    Title = "Book Title",
+                    Author = "Book Author",
+                    Release = 2022,
+                    Price = 19.99f,
+                    Description = "Book Description",
+                    Picture = "book.jpg"
+                }
+            };
 
+        // GET: BookStore/Index
         public IActionResult Index()
         {
             return View(book_list);
         }
 
+        // GET: BookStore/Create
         public IActionResult Create()
         {
-            return View(book_list);
+            return View();
         }
 
+        // GET BookStore/Edit/{id}
         public IActionResult Edit()
         {
-            return View(book_list);
+            return View();
         }
 
+        // GET BookStore/Delete/{id}
         public IActionResult Delete()
         {
-            return View(book_list);
+            return View();
         }
     }
 }

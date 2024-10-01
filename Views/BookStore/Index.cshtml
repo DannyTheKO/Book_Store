@@ -1,4 +1,4 @@
-﻿@model List<Book_Store.Models.Book>
+﻿@model IEnumerable<Book_Store.Models.Book>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,26 +10,44 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-bordered table-responsive">
+<table class="table">
     <thead>
-        <tr class="align-baseline text-center">
-            <th>ID Book</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publisher</th>
-            <th>Avaliable</th>
-            <th>Price</th>
-            <th>Created Date</th>
-            <th>Active</th>
-            <th>Genre</th>
-            <th>Action</th>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublisherId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Release)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr class="align-baseline text-center">
+        <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -38,36 +56,21 @@
                 @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Publisher)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Avaliable)
+                @Html.DisplayFor(modelItem => item.Release)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreateOn)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @{
-                    if (item.IsActive == ActiveStatus.N)
-                    {
-                        <div class="btn btn-danger">No</div>
-                    }
-                    else
-                    {
-                        <div class="btn btn-success">Yes</div>
-                    }
-                }
+                @Html.DisplayFor(modelItem => item.Picture)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenreId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
             </td>
         </tr>
 }

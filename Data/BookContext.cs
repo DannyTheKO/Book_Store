@@ -1,6 +1,9 @@
-﻿namespace Book_Store.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Book_Store.Data
 {
-    public class BookContext
+    public class BookContext : DbContext
     {
+
     }
 }
