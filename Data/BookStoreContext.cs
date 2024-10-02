@@ -8,5 +8,7 @@ namespace Book_Store.Data
         {
 
         }
+
+        public DbSet<BookStoreContext> BookStore { get; set; }
     }
 }
