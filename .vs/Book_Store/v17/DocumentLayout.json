@@ -19,14 +19,6 @@
       "RelativeMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|solutionrelative:controllers\\bookstorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|c:\\users\\danny\\desktop\\personal project\\c#\\book_store\\models\\bookstorev20context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|solutionrelative:models\\bookstorev20context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|c:\\users\\danny\\desktop\\personal project\\c#\\book_store\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|solutionrelative:models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|c:\\users\\danny\\desktop\\personal project\\c#\\book_store\\views\\bookstore\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{196C6141-B4CD-4B2E-8AEB-346AE699A693}|Book_Store.csproj|solutionrelative:views\\bookstore\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -48,7 +40,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-02T01:32:59.449Z",
               "IsPinned": true,
@@ -92,8 +84,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-02T01:31:16.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T01:31:16.81Z"
             },
             {
               "$type": "Document",
@@ -105,12 +96,11 @@
               "RelativeToolTip": "Data\\BookStoreContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:20:30.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T16:20:30.001Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Views\\BookStore\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\BookStore\\Index.cshtml",
@@ -122,30 +112,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BookStoreV20Context.cs",
-              "DocumentMoniker": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Models\\BookStoreV20Context.cs",
-              "RelativeDocumentMoniker": "Models\\BookStoreV20Context.cs",
-              "ToolTip": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Models\\BookStoreV20Context.cs",
-              "RelativeToolTip": "Models\\BookStoreV20Context.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:08:39.122Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Book.cs",
-              "DocumentMoniker": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Models\\Book.cs",
-              "RelativeDocumentMoniker": "Models\\Book.cs",
-              "ToolTip": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Models\\Book.cs",
-              "RelativeToolTip": "Models\\Book.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:08:31.566Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "BookStoreController.cs",
               "DocumentMoniker": "C:\\Users\\Danny\\Desktop\\Personal Project\\C#\\Book_Store\\Controllers\\BookStoreController.cs",
@@ -154,8 +120,7 @@
               "RelativeToolTip": "Controllers\\BookStoreController.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAQwCUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:07:49.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T16:07:49.444Z"
             }
           ]
         }
