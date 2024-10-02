@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using Book_Store.Data;
+using System.Configuration;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Connect to MySQL database
+builder.Services.AddDbContext<BookStoreContext>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("Default")!)
+    );
 
 var app = builder.Build();
 
