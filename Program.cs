@@ -1,5 +1,5 @@
+using Book_Store.Models;
 using Microsoft.EntityFrameworkCore;
-using Book_Store.Data;
 using System.Configuration;
 
 
@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Connect to MySQL database
-builder.Services.AddDbContext<BookStoreContext>(options =>
+builder.Services.AddDbContext<BookStoreV20Context>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("Default")!)
     );
 

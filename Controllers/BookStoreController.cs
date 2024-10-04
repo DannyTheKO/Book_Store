@@ -1,31 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Book_Store.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store.Controllers
 {
     public class BookStoreController : Controller
     {
         //Create a List
-        List<Book> book_list = new List<Book>()
-            {
-                new Book
-                {
-                    BookId = "1",
-                    CategoryId = 1,
-                    PublisherId = 1,
-                    Title = "Book Title",
-                    Author = "Book Author",
-                    Release = 2022,
-                    Price = 19.99f,
-                    Description = "Book Description",
-                    Picture = "book.jpg"
-                }
-            };
+        private readonly BookStoreV20Context _context;
+
+        public BookStoreController(BookStoreV20Context context)
+        {
+            _context = context;
+        }
+
+
 
         // GET: BookStore/Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(book_list);
+            if (_context is null)
+            {
+                return Problem("Entity is BookStoreV20Context is null");
+            }
+
+            return View(await _context.Books.ToListAsync());
         }
 
         // GET: BookStore/Create
