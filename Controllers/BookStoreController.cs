@@ -17,6 +17,7 @@ namespace Book_Store.Controllers
 
 
         // GET: BookStore/Index
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             if (_context is null)
@@ -28,15 +29,24 @@ namespace Book_Store.Controllers
         }
 
         // GET: BookStore/Create
-        public async Task<IActionResult> Create()
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
 
         // POST: BookStore/Create/{id}
-        public async Task<IActionResult> Created()
-        {
-            return View();
+        [HttpPost("BookStore/Create")]
+        public async Task<IActionResult> Create([Bind("BookId", "CategoryId", "PublisherId", "Title", "Author", "Release", "Price", "Picture")] Book book)
+		{
+			if (ModelState.IsValid)
+			{
+				_context.Add(book);
+				await _context.SaveChangesAsync();
+				return RedirectToAction(nameof(Index));
+			}
+
+			return View(book);
         }
 
         // GET BookStore/Edit/{id}

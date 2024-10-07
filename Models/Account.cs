@@ -24,4 +24,6 @@ public partial class Account
     public string? IsAdmin { get; set; }
 
     public string? Active { get; set; }
+
+    public virtual ICollection<Orderbook> Orderbooks { get; set; } = new List<Orderbook>();
 }

@@ -20,4 +20,8 @@ public partial class Orderbook
     public string? Note { get; set; }
 
     public string? Status { get; set; }
+
+    public virtual Account? Account { get; set; }
+
+    public virtual ICollection<Orderdetail> Orderdetails { get; set; } = new List<Orderdetail>();
 }

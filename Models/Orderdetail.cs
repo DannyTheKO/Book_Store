@@ -16,4 +16,8 @@ public partial class Orderdetail
     public float? Price { get; set; }
 
     public float? TotalMoney { get; set; }
+
+    public virtual Book? Book { get; set; }
+
+    public virtual Orderbook? Order { get; set; }
 }

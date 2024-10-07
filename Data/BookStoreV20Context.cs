@@ -65,6 +65,14 @@ public partial class BookStoreV20Context : DbContext
             entity.Property(e => e.Author).HasMaxLength(255);
             entity.Property(e => e.Picture).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(255);
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Books)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("FK_Book_Category");
+
+            entity.HasOne(d => d.Publisher).WithMany(p => p.Books)
+                .HasForeignKey(d => d.PublisherId)
+                .HasConstraintName("FK_Book_Publisher");
         });
 
         modelBuilder.Entity<Category>(entity =>
@@ -92,6 +100,10 @@ public partial class BookStoreV20Context : DbContext
             entity.Property(e => e.ReceiveAddress).HasMaxLength(512);
             entity.Property(e => e.ReceivePhone).HasMaxLength(64);
             entity.Property(e => e.Status).HasMaxLength(16);
+
+            entity.HasOne(d => d.Account).WithMany(p => p.Orderbooks)
+                .HasForeignKey(d => d.AccountId)
+                .HasConstraintName("FK_ OrderBook_Account");
         });
 
         modelBuilder.Entity<Orderdetail>(entity =>
@@ -106,6 +118,14 @@ public partial class BookStoreV20Context : DbContext
 
             entity.Property(e => e.BookId).HasMaxLength(10);
             entity.Property(e => e.OrderId).HasMaxLength(16);
+
+            entity.HasOne(d => d.Book).WithMany(p => p.Orderdetails)
+                .HasForeignKey(d => d.BookId)
+                .HasConstraintName("FK_OrderDetail_Book");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.Orderdetails)
+                .HasForeignKey(d => d.OrderId)
+                .HasConstraintName("FK_OrderDetail_OrderBook");
         });
 
         modelBuilder.Entity<Publisher>(entity =>
