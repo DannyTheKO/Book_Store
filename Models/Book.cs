@@ -22,7 +22,7 @@ public partial class Book
     [DisplayName("Author")]
     public string? Author { get; set; }
 
-    [DisplayName("Release Year")]
+    [DisplayName("Release")]
     public int? Release { get; set; }
 
     [DisplayName("Price")]

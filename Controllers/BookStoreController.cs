@@ -15,7 +15,6 @@ namespace Book_Store.Controllers
         }
 
 
-
         // GET: BookStore/Index
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -54,16 +53,57 @@ namespace Book_Store.Controllers
 			return View(book);
         }
 
-        // GET BookStore/Edit/{id}
+        // GET: BookStore/Edit/{id}
         public IActionResult Edit()
         {
             return View();
         }
 
-        // GET BookStore/Delete/{id}
-        public IActionResult Delete()
+        // GET: BookStore/Delete/
+        [HttpGet]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+        public async Task<IActionResult> DeleteForm(string? id)
         {
-            return View();
+            // Validation
+            var SelectedBook = await _context.Books
+                .Include(b => b.Category)
+                .Include(b => b.Publisher)
+                .FirstOrDefaultAsync(b => b.BookId == id);
+            if (SelectedBook != null) // FOUND!
+            {
+                return View("Delete", SelectedBook);
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "The book you are trying to delete does not exist.";
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+
+        // POST: BookStore/Delete/{BookId}
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(string BookId)
+        {
+            if (BookId == null)
+            {
+                return NotFound();
+            }
+
+            // Validation
+            var SelectedBook = await _context.Books.FindAsync(BookId);
+            if (SelectedBook != null) // FOUND! 
+            {
+                _context.Remove(SelectedBook);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Book deleted successfully.";
+            }
+            else // NOT FOUND!
+            {
+                return NotFound("This book is not found!");
+            }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
