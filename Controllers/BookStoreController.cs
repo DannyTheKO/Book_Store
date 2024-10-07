@@ -28,7 +28,13 @@ namespace Book_Store.Controllers
         }
 
         // GET: BookStore/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
+        // POST: BookStore/Create/{id}
+        public async Task<IActionResult> Created()
         {
             return View();
         }
