@@ -20,12 +20,17 @@ namespace Book_Store.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            if (_context is null)
+            var books = await _context.Books
+                .Include(b => b.Category)   // Load Category Table
+                .Include(b => b.Publisher)  // Load Publisher Table
+                .ToListAsync();
+
+            if (books is null)
             {
                 return Problem("Entity is BookStoreV20Context is null");
             }
 
-            return View(await _context.Books.ToListAsync());
+            return View(books);
         }
 
         // GET: BookStore/Create

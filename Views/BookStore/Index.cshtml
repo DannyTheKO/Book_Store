@@ -17,10 +17,10 @@
                 @Html.DisplayNameFor(model => model.BookId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
+                @Html.DisplayNameFor(model => model.Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PublisherId)
+                @Html.DisplayNameFor(model => model.Publisher)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
@@ -50,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.BookId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PublisherId)
+                @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
