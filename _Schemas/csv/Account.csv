@@ -1,7 +1,0 @@
-AccountId,Usernane,Password,FullName,Picture,Email,Address,Phone,IsAdmin,Active
-,jdoe,password123,John Doe,https://example.com/pictures/jdoe.jpg,jdoe@example.com,123 Main St, Anytown, USA,555-123-4567,0,1
-2e4d6f7a-8c9b-4d2e-9f1a-2b3c4d5e6f7b,asmith,securepass456,Alice Smith,https://example.com/pictures/asmith.jpg,asmith@example.com,456 Elm St, Othertown, USA,555-234-5678,1,1
-3e4d6f7a-8c9b-4d2e-9f1a-2b3c4d5e6f7c,bwhite,mypassword789,Bob White,https://example.com/pictures/bwhite.jpg,bwhite@example.com,789 Oak St, Sometown, USA,555-345-6789,0,0
-4e4d6f7a-8c9b-4d2e-9f1a-2b3c4d5e6f7d,cjones,pass1234,Carol Jones,https://example.com/pictures/cjones.jpg,cjones@example.com,101 Pine St, Anycity, USA,555-456-7890,1,1
-5e4d6f7a-8c9b-4d2e-9f1a-2b3c4d5e6f7e,dlee,password567,David Lee,https://example.com/pictures/dlee.jpg,dlee@example.com,202 Maple St, Othertown, USA,555-567-8901,0,1
-

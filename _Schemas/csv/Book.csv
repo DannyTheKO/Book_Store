@@ -1,6 +1,0 @@
-BookId,CategoryId,PublisherId,Title,Author,Release,Price,Description,Picture
-B001,1,1,The Great Gatsby,F. Scott Fitzgerald,1925,10.99,A novel set in the Roaring Twenties, exploring themes of wealth, excess, and the American dream.,https://example.com/pictures/gatsby.jpg
-B002,2,2,Sapiens: A Brief History of Humankind,Yuval Noah Harari,2011,14.99,A book that explores the history and impact of Homo sapiens.,https://example.com/pictures/sapiens.jpg
-B003,3,3,Dune,Frank Herbert,1965,9.99,A science fiction novel about the complex and multi-layered interactions of politics, religion, ecology, technology, and human emotion.,https://example.com/pictures/dune.jpg
-B004,4,4,Steve Jobs,Walter Isaacson,2011,19.99,A biography of Steve Jobs, the co-founder of Apple Inc.,https://example.com/pictures/stevejobs.jpg
-B005,5,5,Harry Potter and the Sorcerer's Stone,J.K. Rowling,1997,8.99,The first book in the Harry Potter series, introducing the young wizard Harry Potter.,https://example.com/pictures/harrypotter.jpg
