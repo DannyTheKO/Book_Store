@@ -28,12 +28,8 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXERlbGV0ZS5jc2h0bWw=
+[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/CreateForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXENyZWF0ZUZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/Index.cshtml]

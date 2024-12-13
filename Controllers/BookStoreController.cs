@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store.Controllers
 {
+	[Route("[controller]")]
 	public class BookStoreController : Controller
 	{
 		private readonly BookStoreV20Context _context;
@@ -13,9 +14,7 @@ namespace Book_Store.Controllers
 			_context = context;
 		}
 
-
-		// GET: BookStore/Index
-		[HttpGet]
+		[HttpGet("Index")]
 		public async Task<IActionResult> Index()
 		{
 			var books = await _context.Books
@@ -23,62 +22,42 @@ namespace Book_Store.Controllers
 				.Include(b => b.Publisher)  // Load Publisher Table
 				.ToListAsync();
 
-			if (books == null)
+			if (books is null)
 			{
-				return Problem("Books variable is empty ?");
+				return View("Index", TempData["ErrorMessage"] = "Database in empty?");
 			}
 
-			return View(books);
+			return View("Index", books);
 		}
 
-		// GET: BookStore/Create
-		[HttpGet]
-		public IActionResult Create()
+		// GET: BookStore/CreateForm
+		[HttpGet("CreateForm")]
+		public IActionResult CreateForm()
 		{
-			return View();
+			return View("CreateForm");
 		}
 
 		// POST: BookStore/Create/{id}
 		[HttpPost("BookStore/Create")]
-		public async Task<IActionResult> Create([Bind("BookId", "CategoryId", "PublisherId", "Title", "Author", "Release", "Price", "Picture")] Book book)
+		public async Task<IActionResult> Create([Bind("CategoryId", "PublisherId", "Title", "Author", "Release", "Price", "Picture")] Book book)
 		{
 			if (ModelState.IsValid)
 			{
 				_context.Add(book);
 				await _context.SaveChangesAsync();
-				return RedirectToAction(nameof(Index));
+
+				return View("Index", TempData["SuccessMessage"] = "Successfully added books");
 			}
 
-			return View(book);
+			return View("Index");
 		}
 
 		// GET: BookStore/Edit/{id}
-		public IActionResult Edit()
+		[HttpGet("EditForm")]
+		public IActionResult EditForm()
 		{
-			return View();
+			return View("EditForm");
 		}
-
-		// GET: BookStore/Delete/
-		[HttpGet]
-		[ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-		public async Task<IActionResult> DeleteForm(string? id)
-		{
-			// Validation
-			var SelectedBook = await _context.Books
-				.Include(b => b.Category)
-				.Include(b => b.Publisher)
-				.FirstOrDefaultAsync(b => b.BookId == id);
-			if (SelectedBook != null) // FOUND!
-			{
-				return View("Delete", SelectedBook);
-			}
-			else
-			{
-				TempData["ErrorMessage"] = "The book you are trying to delete does not exist.";
-				return RedirectToAction(nameof(Index));
-			}
-		}
-
 
 		// POST: BookStore/Delete/{BookId}
 		[HttpPost, ActionName("Delete")]

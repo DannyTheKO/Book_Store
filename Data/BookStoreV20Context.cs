@@ -19,38 +19,41 @@ public partial class BookStoreV20Context : DbContext
 
 	public virtual DbSet<Category> Categories { get; set; }
 
-	public virtual DbSet<Orderbook> Orderbooks { get; set; }
+	public virtual DbSet<OrderBook> OrderBook { get; set; }
 
-	public virtual DbSet<Orderdetail> Orderdetails { get; set; }
+	public virtual DbSet<Orderdetail> OrderDetail { get; set; }
 
 	public virtual DbSet<Publisher> Publishers { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		=> optionsBuilder.UseMySQL("Name=ConnectionStrings:Default");
+		=> optionsBuilder.UseSqlServer("Name=ConnectionStrings:Default");
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.Entity<Account>(entity =>
 		{
-			entity.HasKey(e => e.AccountId).HasName("PRIMARY");
+			entity.HasKey(e => e.AccountId);
+			entity.Property(e => e.AccountId).ValueGeneratedOnAdd();
 
 			entity.ToTable("account");
 
 			entity.Property(e => e.AccountId).HasMaxLength(36);
-			entity.Property(e => e.Active).HasColumnType("enum('N','Y')");
 			entity.Property(e => e.Address).HasMaxLength(512);
 			entity.Property(e => e.Email).HasMaxLength(64);
 			entity.Property(e => e.FullName).HasMaxLength(100);
-			entity.Property(e => e.IsAdmin).HasColumnType("enum('N','Y')");
 			entity.Property(e => e.Password).HasMaxLength(256);
 			entity.Property(e => e.Phone).HasMaxLength(64);
 			entity.Property(e => e.Picture).HasMaxLength(512);
-			entity.Property(e => e.Usernane).HasMaxLength(64);
+			entity.Property(e => e.Username).HasMaxLength(64);
+
+			entity.Property(e => e.IsAdmin).HasMaxLength(1);
+			entity.Property(e => e.Active).HasMaxLength(1);
 		});
 
 		modelBuilder.Entity<Book>(entity =>
 		{
-			entity.HasKey(e => e.BookId).HasName("PRIMARY");
+			entity.HasKey(e => e.BookId);
+			entity.Property(e => e.BookId).ValueGeneratedOnAdd();
 
 			entity.ToTable("book");
 
@@ -60,6 +63,7 @@ public partial class BookStoreV20Context : DbContext
 
 			entity.Property(e => e.BookId).HasMaxLength(10);
 			entity.Property(e => e.Author).HasMaxLength(255);
+			entity.Property(e => e.Description);
 			entity.Property(e => e.Picture).HasMaxLength(255);
 			entity.Property(e => e.Title).HasMaxLength(255);
 
@@ -74,40 +78,42 @@ public partial class BookStoreV20Context : DbContext
 
 		modelBuilder.Entity<Category>(entity =>
 		{
-			entity.HasKey(e => e.CategoryId).HasName("PRIMARY");
+			entity.HasKey(e => e.CategoryId);
+			entity.Property(e => e.CategoryId).ValueGeneratedOnAdd();
 
 			entity.ToTable("category");
 
 			entity.Property(e => e.CategoryName).HasMaxLength(255);
 		});
 
-		modelBuilder.Entity<Orderbook>(entity =>
+		modelBuilder.Entity<OrderBook>(entity =>
 		{
-			entity.HasKey(e => e.OrderId).HasName("PRIMARY");
+			entity.HasKey(e => e.OrderId);
+			entity.Property(e => e.OrderId).ValueGeneratedOnAdd();
 
-			entity.ToTable("orderbook");
+			entity.ToTable("orderBook");
 
 			entity.HasIndex(e => e.AccountId, "Account_KEY");
 
 			entity.Property(e => e.OrderId).HasMaxLength(16);
-			entity.Property(e => e.AccountId).HasMaxLength(36);
-			entity.Property(e => e.Note).HasMaxLength(512);
 			entity.Property(e => e.OrderDate).HasColumnType("datetime");
 			entity.Property(e => e.OrderReceive).HasColumnType("datetime");
 			entity.Property(e => e.ReceiveAddress).HasMaxLength(512);
 			entity.Property(e => e.ReceivePhone).HasMaxLength(64);
 			entity.Property(e => e.Status).HasMaxLength(16);
 
-			entity.HasOne(d => d.Account).WithMany(p => p.Orderbooks)
+			entity.HasOne(d => d.Account).WithMany(p => p.OrderBook)
 				.HasForeignKey(d => d.AccountId)
 				.HasConstraintName("FK_ OrderBook_Account");
 		});
 
+
 		modelBuilder.Entity<Orderdetail>(entity =>
 		{
-			entity.HasKey(e => e.OrderDetailId).HasName("PRIMARY");
+			entity.HasKey(e => e.OrderDetailId);
+			entity.Property(e => e.OrderDetailId).ValueGeneratedOnAdd();
 
-			entity.ToTable("orderdetail");
+			entity.ToTable("orderDetail");
 
 			entity.HasIndex(e => e.BookId, "Book_KEY");
 
@@ -116,7 +122,7 @@ public partial class BookStoreV20Context : DbContext
 			entity.Property(e => e.BookId).HasMaxLength(10);
 			entity.Property(e => e.OrderId).HasMaxLength(16);
 
-			entity.HasOne(d => d.Book).WithMany(p => p.Orderdetails)
+			entity.HasOne(d => d.Book).WithMany(p => p.OrderDetail)
 				.HasForeignKey(d => d.BookId)
 				.HasConstraintName("FK_OrderDetail_Book");
 
@@ -127,7 +133,8 @@ public partial class BookStoreV20Context : DbContext
 
 		modelBuilder.Entity<Publisher>(entity =>
 		{
-			entity.HasKey(e => e.PublisherId).HasName("PRIMARY");
+			entity.HasKey(e => e.PublisherId);
+			entity.Property(e => e.PublisherId).ValueGeneratedOnAdd();
 
 			entity.ToTable("publisher");
 
