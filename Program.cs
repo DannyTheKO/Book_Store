@@ -1,5 +1,8 @@
 using Book_Store.Models;
+using Book_Store.Authentication;
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Configuration;
 
 
