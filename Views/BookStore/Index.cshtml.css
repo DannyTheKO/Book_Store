@@ -1,0 +1,10 @@
+﻿main .pd-3 table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+}
+
+/* Optional: Add horizontal scroll for responsive behavior */
+main .pd-3 {
+    overflow-x: auto;
+}

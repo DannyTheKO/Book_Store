@@ -1,0 +1,79 @@
+﻿@model Book_Store.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EditForm</h1>
+
+<h4>Book</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookId" />
+            <div>
+	            <label asp-for="CategoryId">Category</label>
+	            <select asp-for="CategoryId" class="form-control">
+		            <option value="">-- Select Category --</option>
+		            @foreach (var category in ViewBag.Categories)
+		            {
+			            <option value="@category.CategoryId">@category.CategoryName</option>
+		            }
+	            </select>
+	            <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div>
+	            <label asp-for="PublisherId">Publisher</label>
+	            <select asp-for="PublisherId" class="form-control">
+		            <option value="">-- Select Publisher --</option>
+		            @foreach (var publisher in ViewBag.Publishers)
+		            {
+			            <option value="@publisher.PublisherId">@publisher.PublisherName</option>
+		            }
+	            </select>
+	            <span asp-validation-for="PublisherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Release" class="control-label"></label>
+                <input asp-for="Release" type="date" class="form-control" />
+                <span asp-validation-for="Release" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture" class="control-label"></label>
+                <input asp-for="Picture" class="form-control" />
+                <span asp-validation-for="Picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

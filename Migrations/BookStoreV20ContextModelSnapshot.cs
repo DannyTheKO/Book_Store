@@ -89,7 +89,8 @@ namespace Book_Store.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
 
                     b.Property<string>("Picture")
                         .HasMaxLength(255)
@@ -101,8 +102,8 @@ namespace Book_Store.Migrations
                     b.Property<int?>("PublisherId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Release")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("Release")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .HasMaxLength(255)

@@ -23,7 +23,7 @@
 
 <a class="btn btn-success" asp-action="CreateForm">Create New Books</a>
 
-<table class="table d-xxl-table-row">
+<table class="table table-responsive w-100">
     <thead>
         <tr>
             <th>
@@ -50,10 +50,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -84,11 +81,8 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Picture)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                <a asp-action="EditForm" asp-route-bookId="@item.BookId">Edit</a> |
+                <a asp-action="Delete" asp-route-bookId="@item.BookId">Delete</a>
             </td>
         </tr>
 }

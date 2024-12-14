@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Book_Store.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialSqlServer : Migration
+    public partial class InitialSetUp : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -94,9 +94,9 @@ namespace Book_Store.Migrations
                     PublisherId = table.Column<int>(type: "int", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Author = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    Release = table.Column<int>(type: "int", nullable: true),
+                    Release = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Price = table.Column<float>(type: "real", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: true),
                     Picture = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
                 },
                 constraints: table =>
@@ -115,7 +115,7 @@ namespace Book_Store.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "orderdetail",
+                name: "orderDetail",
                 columns: table => new
                 {
                     OrderDetailId = table.Column<int>(type: "int", nullable: false)
@@ -128,7 +128,7 @@ namespace Book_Store.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_orderdetail", x => x.OrderDetailId);
+                    table.PrimaryKey("PK_orderDetail", x => x.OrderDetailId);
                     table.ForeignKey(
                         name: "FK_OrderDetail_Book",
                         column: x => x.BookId,
@@ -158,12 +158,12 @@ namespace Book_Store.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "Book_KEY",
-                table: "orderdetail",
+                table: "orderDetail",
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
                 name: "Order_KEY",
-                table: "orderdetail",
+                table: "orderDetail",
                 column: "OrderId");
         }
 
@@ -171,7 +171,7 @@ namespace Book_Store.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "orderdetail");
+                name: "orderDetail");
 
             migrationBuilder.DropTable(
                 name: "book");

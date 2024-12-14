@@ -1,4 +1,4 @@
-﻿@model Book_Store.Models.Book;
+﻿@model Book_Store.Controllers.BookStoreController.BookForm;
 
 @{
 	ViewData["Title"] = "Create";
@@ -7,20 +7,41 @@
 
 <h1>Create a Book</h1>
 
+
+@if (TempData["ErrorMessage"] != null)
+{
+	<div class="alert alert-danger">
+		@TempData["ErrorMessage"]
+	</div>
+}
+
 <div class="row">
 	<div class="col-md-4">
 		<form asp-action="Create">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div> @* for validation user input *@
 			<div>
-				<label asp-for="CategoryId"></label>
-				<input asp-for="CategoryId" class="form-control"/>
+				<label asp-for="CategoryId">Category</label>
+				<select asp-for="CategoryId" class="form-control">
+					<option value="">-- Select Category --</option>
+					@foreach (var category in ViewBag.Categories)
+					{
+						<option value="@category.CategoryId">@category.CategoryName</option>
+					}
+				</select>
 				<span asp-validation-for="CategoryId" class="text-danger"></span>
 			</div>
 			<div>
-				<label asp-for="PublisherId"></label>
-				<input asp-for="PublisherId" class="form-control"/>
+				<label asp-for="PublisherId">Publisher</label>
+				<select asp-for="PublisherId" class="form-control">
+					<option value="">-- Select Publisher --</option>
+					@foreach (var publisher in ViewBag.Publishers)
+					{
+						<option value="@publisher.PublisherId">@publisher.PublisherName</option>
+					}
+				</select>
 				<span asp-validation-for="PublisherId" class="text-danger"></span>
 			</div>
+
 			<div>
 				<label asp-for="Title"></label>
 				<input asp-for="Title" class="form-control"/>
@@ -33,7 +54,7 @@
 			</div>
 			<div>
 				<label asp-for="Release"></label>
-				<input asp-for="Release" class="form-control"/>
+				<input asp-for="Release" type="date" class="form-control"/>
 				<span asp-validation-for="Release" class="text-danger"></span>
 			</div>
 			<div>
@@ -43,7 +64,7 @@
 			</div>
 			<div>
 				<label asp-for="Description"></label>
-				<input asp-for="Description" class="form-control"/>
+				<input asp-for="Description" type="text" class="form-control"/>
 				<span asp-validation-for="Description" class="text-danger"></span>
 			</div>
 			<div>

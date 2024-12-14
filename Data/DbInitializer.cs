@@ -40,7 +40,7 @@ public static class DbInitializer
 				Author = "John Doe",
 				CategoryId = categories[3].CategoryId,
 				PublisherId = publishers[0].PublisherId,
-				Release = 2023,
+				Release = DateTime.Parse("2023-01-01"),
 				Price = 49.99f,
 				Description = "Complete C# programming guide"
 			},
@@ -49,7 +49,7 @@ public static class DbInitializer
 				Author = "Jane Smith",
 				CategoryId = categories[2].CategoryId,
 				PublisherId = publishers[1].PublisherId,
-				Release = 2023,
+				Release = DateTime.Parse("2023-01-01"),
 				Price = 39.99f,
 				Description = "Basic physics concepts"
 			}
