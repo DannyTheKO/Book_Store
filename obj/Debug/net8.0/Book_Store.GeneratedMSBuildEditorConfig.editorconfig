@@ -28,12 +28,24 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/CreateForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXENyZWF0ZUZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/EditForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXEVkaXRGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/Home/Index.cshtml]
@@ -59,10 +71,6 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/BookStore/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1N0b3JlXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = b-mvhzmopod0
 
 [C:/Users/Danny/Desktop/Personal Project/CSharp/Book_Store/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

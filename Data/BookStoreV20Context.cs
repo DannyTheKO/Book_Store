@@ -4,14 +4,9 @@ namespace Book_Store.Models;
 
 public partial class BookStoreV20Context : DbContext
 {
-	public BookStoreV20Context()
-	{
-	}
+	public BookStoreV20Context() { }
 
-	public BookStoreV20Context(DbContextOptions<BookStoreV20Context> options)
-		: base(options)
-	{
-	}
+	public BookStoreV20Context(DbContextOptions<BookStoreV20Context> options) : base(options) { }
 
 	public virtual DbSet<Account> Accounts { get; set; }
 
@@ -26,7 +21,12 @@ public partial class BookStoreV20Context : DbContext
 	public virtual DbSet<Publisher> Publishers { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		=> optionsBuilder.UseSqlServer("Name=ConnectionStrings:Default");
+	{
+		if (!optionsBuilder.IsConfigured)
+		{
+			optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=book_store_v2.0;Trusted_Connection=True;MultipleActiveResultSets=true");
+		}
+	}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

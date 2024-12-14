@@ -1,4 +1,5 @@
 ﻿using Book_Store.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Book_Store.Controllers
 {
 	[Route("[controller]")]
+	[Authorize]
 	public class BookStoreController : Controller
 	{
 		private readonly BookStoreV20Context _context;
